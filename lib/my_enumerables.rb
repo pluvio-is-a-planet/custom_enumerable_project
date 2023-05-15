@@ -65,6 +65,17 @@ module Enumerable
 
     count
   end
+
+  def my_map
+    return unless block_given?
+
+    arr = []
+    length.times do |index|
+      item = self[index]
+      arr.push(yield item)
+    end
+    arr
+  end
 end
 
 # You will first have to define my_each

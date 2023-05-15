@@ -42,6 +42,17 @@ module Enumerable
 
     false
   end
+
+  def my_none?
+    return unless block_given?
+
+    length.times do |index|
+      item = self[index]
+      return false if yield item
+    end
+
+    true
+  end
 end
 
 # You will first have to define my_each

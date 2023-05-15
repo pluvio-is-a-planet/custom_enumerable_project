@@ -76,6 +76,16 @@ module Enumerable
     end
     arr
   end
+
+  def my_inject(initial)
+    return unless block_given?
+
+    length.times do |index|
+      item = self[index]
+      initial = yield item, initial
+    end
+    initial
+  end
 end
 
 # You will first have to define my_each

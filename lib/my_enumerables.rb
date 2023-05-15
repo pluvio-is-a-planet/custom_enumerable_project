@@ -20,6 +20,17 @@ module Enumerable
     end
     arr
   end
+
+  def my_all?
+    return unless block_given?
+
+    length.times do |index|
+      item = self[index]
+      return false unless yield item
+    end
+
+    true
+  end
 end
 
 # You will first have to define my_each

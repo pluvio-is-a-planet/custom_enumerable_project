@@ -9,6 +9,17 @@ module Enumerable
     end
     self
   end
+
+  def my_select
+    arr = []
+    if block_given?
+      length.times do |index|
+        item = self[index]
+        arr << item if yield item
+      end
+    end
+    arr
+  end
 end
 
 # You will first have to define my_each
